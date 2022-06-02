@@ -2,6 +2,8 @@ import './css/styles.css';
 import debounce from 'lodash.debounce';
 import fetchCountry from './js/fetchCountries'
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import renderCountryInfo from './js/render_Country_info';
+import renderCountryList from './js/render_Country_List';
 
 const DEBOUNCE_DELAY = 300;
 
@@ -31,39 +33,3 @@ function onFetchCountry(event) {
     })
     .catch(error => Notify.failure('Oops, there is no country with that name'));
 };
-
-function renderCountryList(country) {
-  const countriesList = country.map((count) => {
-    return `<li class="country-item">
-	            <h2 class="country-name">
-		            <img src=" ${count.flag}" alt="flags ${count.name}" width="35px">
-		            ${count.name}
-	             </h2>
-            </li>`
-  }).join("")
-  listRef.innerHTML = countriesList;
-}
-
-function renderCountryInfo(country) {
-
-  const countriesList = country.map((count) => {
-    return `<li class="country-item">
-	            <h2 class="country-name">
-		            <img src=" ${count.flag}" alt="flags ${count.name}" width="35px">
-		            ${count.name}
-	             </h2>
-            </li>`
-  }).join("")
-  listRef.innerHTML = countriesList;
-
-  const countriesInfo = country.flatMap((count) => {
-    return `<ul class="country-info__list">
-	<li class="country-info__item" > <b>Capital:</b>  ${count.capital} </li>
-	<li  class="country-info__item"> <b>Population:</b>  ${count.population}</li>
-	<li class="country-info__item" > <b>Languages:</b>  ${count.languages.name} </li>
-</ul>`
-  });
-
-  listRef.innerHTML = countriesList;
-  containerRef.innerHTML = countriesInfo;
-}
