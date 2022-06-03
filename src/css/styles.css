@@ -7,7 +7,7 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
+  background-color: #e2e2e2;
   color: #212121;
   line-height: 1.5;
 }
@@ -29,4 +29,16 @@ ul {
   margin: 15px 0;
   padding: 0;
   list-style: none;
+}
+.country-info__flag,
+.country-flag {
+  border: solid 1px black;
+  border-radius: 3px;
+}
+.country-list__item {
+  display: flex;
+  margin-bottom: 20px;
+}
+.country-name {
+  margin-left: 15px;
 }

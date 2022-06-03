@@ -1,12 +1,8 @@
-
 export default function renderCountryList(country) {
-    const countriesList = country.map((count) => {
-        return `<li class="country-item">
-	            <h2 class="country-name">
-		            <img src=" ${count.flag}" alt="flags ${count.name}" width="35px">
-		            ${count.name}
-	             </h2>
-            </li>`
-    }).join("")
-    listRef.innerHTML = countriesList;
+  return `<li class="country-list__item">
+            <img src = '${country.flags.svg}' class='country-flag' width = '60' alt=${country.name.common}>
+            <h2 class="country-name">
+              ${country.name.common}
+            </h2>
+          </li>`;
 }
